@@ -1,0 +1,14 @@
+{% load static%}
+{% for product in products %}
+    <div class="col-md-4 col-sm-6 p-0">
+    <div class="card mr-2 mb-4 p-0 shadow rounded border border-info" style="width: 14rem;">
+        <img src="{% static 'img/300x200.png' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+        <h5 class="card-title">{{ product.title }}</h5>
+        <p class="card-text">{{ product.vendor }}</p>
+        <p class="card-text">Price: ${{ product.price }}</p>
+        <button type="button" class="btn btn-info">Bay</a>
+        </div>
+    </div>
+    </div>
+{% endfor %}

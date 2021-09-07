@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static%}
+{% block content %}
+  <br>
+  <div class="mt-5 d-flex justify-content-between">
+    <h1 class="">Catalog</h1>
+    <button type="button" class="btn btn-outline-dark btn-lg mb-4" data-toggle="modal" data-url="{% url 'catalog:product-add' %}" data-target="#Modal">Add product</button>
+  </div>
+  <!-- Cards -->
+  <div class="album">
+    <div class="container">
+      <div class="row" id="catalog">
+        {% include "catalog/list.html" %}
+      </div>
+    </div>
+  </div> 
+
+  <!-- Modal product add window, shows in modal mode -->
+  <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Good item add/update</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          {% include "catalog/gooditem_modal_form.html" %}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" id="add-button" class="btn btn-primary">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+
+{% block js %}
+  <script src="{% static 'js/add_product.js' %}"></script>
+{% endblock js %}
