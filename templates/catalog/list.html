@@ -7,7 +7,10 @@
         <h5 class="card-title">{{ product.title }}</h5>
         <p class="card-text">{{ product.vendor }}</p>
         <p class="card-text">Price: ${{ product.price }}</p>
-        <button type="button" class="btn btn-info">Bay</a>
+        <form action="/product/bay" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-info">Bay</button>
+        </form>
         </div>
     </div>
     </div>
